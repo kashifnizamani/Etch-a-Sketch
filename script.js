@@ -16,18 +16,26 @@ function createGrid(numberPerRow) {
       if (i % mod === 0) {
         div.style.cssText = "border: 0; height: 0; width: 100%";
       } else {
-        div.style.width = (700 / numberPerRow) + "px";
-        div.style.height = (700 / numberPerRow) + "px";
+        div.style.width = (600 / numberPerRow) + "px";
+        div.style.height = (600 / numberPerRow) + "px";
         div.style.border = "1px solid black";
       }
   
       container.appendChild(div);
     }
+    let square = document.querySelectorAll('.square');
+square.forEach(square => {
+  square.addEventListener('mouseover', () => {
+
+      square.style.backgroundColor = RGBcolor();
+
+  });
+});
    
     
   }
   
-  createGrid(50);
+  createGrid(16);
 
   function RGBcolor() {
     let R = Math.floor(Math.random() * 256);
@@ -38,15 +46,25 @@ function createGrid(numberPerRow) {
   }
   
 
-  const elements = document.querySelectorAll('.square');
 
-  elements.forEach(element => {
-    element.addEventListener('mouseover', () => {
 
-        element.style.backgroundColor = RGBcolor();
+createBtn.addEventListener("click", ()=> {
+   
+ let size = prompt("provide the grid size between 1 and 100");
+  if(size > 0 && size <= 100){
+   const elements =  document.querySelectorAll(".square");
+   elements.forEach(element => element.remove()
+   )
+   
+    createGrid(Number(size));
+  }
+  else{
+    alert("please provide a valid size")
 
-    });
-});
+  }
+   
+})
+
 
 
   
