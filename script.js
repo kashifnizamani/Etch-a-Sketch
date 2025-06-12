@@ -1,8 +1,5 @@
 
-const createBtn = document.createElement("button");
-createBtn.textContent = "Create New Grid";
-const body = document.querySelector(".container");
-body.appendChild(createBtn);
+const createBtn = document.querySelector(".button");
 
 
 function createGrid(numberPerRow) {
@@ -45,9 +42,6 @@ square.forEach(square => {
      return randomcolor;
   }
   
-
-
-
 createBtn.addEventListener("click", ()=> {
    
  let size = prompt("provide the grid size between 1 and 100");
